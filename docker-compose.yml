@@ -1,0 +1,7 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./apps/frontend  # 前端项目的Dockerfile所在目录
+    ports:
+      - '8080:80'
