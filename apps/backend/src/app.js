@@ -7,9 +7,8 @@ const routes = require('./routes');
 // 设置路由前缀
 app.use('/api/v1', routes);
 
-
 app.get('/', (req, res) => {
   res.send('Hello World!');
- });
+});
 
 module.exports = app;

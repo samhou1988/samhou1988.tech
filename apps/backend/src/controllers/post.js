@@ -4,7 +4,9 @@ const postService = require('../services/post');
 exports.createPost = async (req, res) => {
   const { title, content } = req.body;
   if (!title || !content) {
-    return res.status(400).json({ status: 'error', message: 'Title and content are required' });
+    return res
+      .status(400)
+      .json({ status: 'error', message: 'Title and content are required' });
   }
 
   try {
@@ -23,7 +25,9 @@ exports.getPost = async (req, res) => {
   try {
     const post = await postService.getPostById(postId);
     if (!post) {
-      return res.status(404).json({ status: 'error', message: 'Blog post not found' });
+      return res
+        .status(404)
+        .json({ status: 'error', message: 'Blog post not found' });
     }
     res.json(post);
   } catch (error) {
