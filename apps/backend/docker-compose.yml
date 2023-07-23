@@ -1,0 +1,30 @@
+version: '3'
+services:
+  nodejs:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=mysecretpassword
+      - DATABASE_NAME=myblog
+    networks:
+      - myblog-network
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysecretpassword
+      - MYSQL_DATABASE=myblog
+    volumes:
+      - /var/data/mysql-data:/var/lib/mysql
+    networks:
+      - myblog-network
+networks:
+  myblog-network:
