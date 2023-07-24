@@ -30,6 +30,7 @@ exports.register = async (req, res) => {
   // 4. create user
   try {
     const user = await userService.create(username, email, hashedPassword);
+    console.log(secretKey, 'secretKey');
     const token = jwt.sign({ email: user.email }, secretKey, {
       expiresIn: '1h',
     });
@@ -49,12 +50,10 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-
   const user = await userService.getUserByEmail(email);
   if (!user) {
     return res.status(401).json({ message: 'Invalid email or password' });
   }
-  console.log(user);
   bcrypt.compare(password, user.password, (err, result) => {
     if (err || !result) {
       return res.status(401).json({ message: 'Invalid email or password' });

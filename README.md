@@ -22,7 +22,7 @@
 
 1. 进入 `backend/` 目录：`cd backend`
 2. 安装依赖：`pnpm install`
-3. 配置 MySQL 数据库连接：在 `backend/config/config.js` 文件中配置 Sequelize 的连接字符串。
+3. 配置 MySQL 数据库连接：在 `backend/src/config/db.js` 文件中配置 Sequelize 的连接字符串。
 4. 运行后端服务器：`pnpm start`
 
 ## 功能
