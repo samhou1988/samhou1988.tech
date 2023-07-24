@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # 启动 Node.js 服务器
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]

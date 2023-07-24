@@ -1,15 +1,6 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
-// 使用Sequelize连接到MySQL数据库
-const sequelize = new Sequelize(
-  'myblog',
-  'root',
-  process.env.DATABASE_PASSWORD,
-  {
-    host: 'mysql',
-    dialect: 'mysql',
-  },
-);
+const sequelize = require('../config/db');
 
 // 定义博客文章模型
 const PostModel = sequelize.define('Post', {
